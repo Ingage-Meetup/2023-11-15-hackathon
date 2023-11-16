@@ -1,6 +1,6 @@
 # November Hackathon
 ## Scenario
-Tikkun Farms delivers approximately 150 – 175 meals per week using a team of approximately 40 – 50
+[Tikkun Farms](https://tikkunfarm.com/) delivers approximately 150 – 175 meals per week using a team of approximately 40 – 50
 volunteer drivers. All deliveries originate from the farm located at 7945 Elizabeth St., Cincinnati, OH
 45231, 39.2381772, -84.5459664.
 
