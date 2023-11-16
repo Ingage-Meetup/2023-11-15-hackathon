@@ -37,7 +37,7 @@ https://docs.aws.amazon.com/location/latest/developerguide/location-actions.html
 ### Azure Maps
 https://azure.microsoft.com/en-us/products/azure-maps/  
 I have created a service here and you may test this one using Shared Key Authentication with the key: RovavDJWenupKw-1g_V9LBwo_ggX4xuwXe8tQi6U-Ec  
-I will be deleting this key after the event.
+I will be deleting this key after the event. **NOTE: I have rotated the keys, so this will no longer work.**
 
 ### Mapquest (yes apparently they are still around)
 https://developer.mapquest.com/documentation
