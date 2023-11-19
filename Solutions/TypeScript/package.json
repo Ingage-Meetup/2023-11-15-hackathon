@@ -5,7 +5,8 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "geocode": "node --loader ts-node/esm --experimental-specifier-resolution=node ./src/geocode.ts"
+    "geocode": "node --loader ts-node/esm --experimental-specifier-resolution=node ./src/geocode.ts",
+    "plan": "node --loader ts-node/esm --experimental-specifier-resolution=node ./src/plan.ts"
   },
   "devDependencies": {
     "@types/geojson": "^7946.0.13",
