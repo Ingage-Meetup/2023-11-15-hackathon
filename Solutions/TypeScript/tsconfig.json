@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    // This was actually kind of a nightmare to figure out.
+    // There is a LOT of outdated, incorrect advise out there.
+    // there is/was an ESM vs CommonJS war that's made a huge mess, this seems to get us through it.
+    "target": "esnext", // DO NOT CHANGE!
+    "module": "esnext", // DO NOT CHANGE!
+    "moduleResolution": "node",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+
+    // "target": "es2016",
+    "lib": [
+      "es7",
+      "es6",
+      "dom"
+    ],
+    // "module": "commonjs",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "sourceMap": true,
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "ts-node": {
+    "require": [
+      "tsconfig-paths/register"
+    ]
+  }
+}
