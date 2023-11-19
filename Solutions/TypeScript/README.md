@@ -15,7 +15,27 @@ TODO - document this better...
 To run this code, you also need node and yarn and the other setup mentioned in the [Development](#development) section.
 
 ### Find Optimal Routes
-TBD
+I'm thinking an approach could be to do the traveling salesperson solution, but at each iteration over a delivery and each driver, use the straight-line distance calculation formula to calculate the distance for that delivery from the driver's current position. Then choose the top N (not sure, maybe this should be tunable...) "candidates" from that list, which would be the top N based on the shortest distance to that next delivery. Then use the OpenRouteService to get an actual driving distance for those top N, and choose the one with the shortest driving distance.
+
+To make this even more optimized, we can keep some geofenced boxes configured for land features like the Ohio River (any others) so that if a driver has to cross any of those features in their straight-line between their points, then we can assume that the route will be longer, and they should maybe not be in the top N.
+
+#### Current Implementation
+The initial implementation I'm playing with is just doing straight-line calculations. I think I can work out a lot of the kinks with this, and try to optimize the algorithm, before integrating with an actual distance service (which can get expensive).
+
+The current implementation starts at the Farm and tries to move each driver towards their home address with each delivery. It could be improved further by picking the next optimal delivery for each driver, rather than just doing one delivery at a time and finding the optimal driver for that delivery. This way, if there are ties where a delivery might be a good option for multiple drivers, we could look at the next best delivery for each driver.
+
+Still a work in progress.
+
+Run this with a command like the following:
+```shell
+yarn plan ../../driver-geocoded.csv ../../delivery-geocoded.csv
+```
+
+This command expects two arguments - the path to a file containing fully geo-coded driver addresses, and the path to a file containing fully geo-coded delivery addresses. It will remove delivery addresses where the delivery is a driver's home address, with the assumption that the driver will take their own delivery to their own home.
+
+#### Maps
+* [Deliveries](https://batchgeo.com/map/5767e2b7469ff59b08974e70af461250)
+* [Drivers](https://batchgeo.com/map/3abd164361e5faf9d2d1983ce3e5bda2)
 
 ### Geocode Addresses
 This is the solution to [Challenge 2](../../README.md#challenge-2) in the main README. This will take a CSV with the proper format as input, and output a CSV (in the console) with all addresses having missing geo-coordinates filled in. The format is expected to be what is shown in the [driver-partial-geocoded.csv](../../driver-partial-geocoded.csv).
