@@ -47,8 +47,8 @@ async function main(args: Array<string>) {
       const address = new StreetAddress(row[0] as string, row[1] as string | null, row[2] as string, row[3] as string, row[4] as string)
       if (row.length == 7 && row[5] && row[6]) {
         address.geoLocation = <GeoLocation>{
-          longitude: new Number(row[5]),
-          latitude: new Number(row[6]),
+          latitude: row[5],
+          longitude: row[6],
         }
       }
 

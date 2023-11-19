@@ -20,8 +20,8 @@ export class OpenRouteGeoLocationService implements GeocodingService{
     const point = result.features.find((f) => f.geometry.type == 'Point')
     if (point) {
       return <GeoLocation>{
-        latitude: point.geometry.coordinates[0],
-        longitude: point.geometry.coordinates[1]
+        longitude: point.geometry.coordinates[0].toString(),
+        latitude: point.geometry.coordinates[1].toString()
       }
     } else {
       throw new Error("No coordinates returned");

@@ -16,6 +16,19 @@ export class StreetAddress {
     return this.geoLocation !== null
   }
 
+  public sameAs(other: StreetAddress): boolean {
+    if (this.hasGeoLocation && other.hasGeoLocation) {
+      return this.geoLocation?.latitude == other.geoLocation?.latitude &&
+        this.geoLocation?.longitude == other.geoLocation?.longitude
+    }
+
+    return this.addressLine1.toLowerCase().trim() == other.addressLine1.toLowerCase().trim()
+      && this.addressLine2?.toLowerCase().trim() == other.addressLine2?.toLowerCase().trim()
+      && this.city.toLowerCase().trim() == other.city.toLowerCase().trim()
+      && this.state.toLowerCase().trim() == other.state.toLowerCase().trim()
+      && this.postalCode.toLowerCase().trim() == other.postalCode.toLowerCase().trim()
+  }
+
   public toString() {
     const address = [this.addressLine1, this.addressLine2, this.city, this.state, this.postalCode]
     return address.map((component) => component?.trim()).filter((component) => component && component?.length > 0).join(', ')
@@ -37,6 +50,6 @@ export class StreetAddress {
 }
 
 export interface GeoLocation {
-  latitude: number,
-  longitude: number
+  latitude: string,
+  longitude: string
 }
